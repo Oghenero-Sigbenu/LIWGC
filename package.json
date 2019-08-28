@@ -1,0 +1,21 @@
+{
+  "name": "liwgc",
+  "version": "1.0.0",
+  "description": "Church App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Nero",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^4.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mysql2": "^1.7.0",
+    "nodemon": "^1.19.1",
+    "sequelize": "^5.17.0"
+  }
+}
