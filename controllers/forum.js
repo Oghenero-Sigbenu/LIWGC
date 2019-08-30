@@ -3,7 +3,7 @@ const Forum = require("../model/forum");
 exports.createForum = (req, res, next) => {
     const {name, topic, detail, date} = req.body;
         if(!name || !topic || !detail || !date){
-            res.statu(400).json("All fields are required")
+            res.status(400).json("All fields are required")
         }else{
             Forum.create({
                 name, topic, detail, date
@@ -24,22 +24,15 @@ exports.getForum = (req, res, next) => {
 };
 
 exports.getForumTopicId = (req, res, next) => {
-    const forumId = req.params.id;
-        Forum.findOne({
-            where: {
-                id: forumId
-            },
-            include: [
-            {
-                all: true
-            }
-        ]
-        })
-        .then(foru => {
-            if(!foru){
+    const id = req.params.id;
+        Forum.findByPk(id)
+        .then(forum => {
+            if(!forum.id){
                 res.status(400).json("Topic not found")
             }else{
-                res.json(foru)
+                // res.json(forum)
+                console.log(forum.dataValue)
+                // console.log('gettng')
             }
         })
         .catch(err => res.json({msg: err.message || "Error occured"}) )

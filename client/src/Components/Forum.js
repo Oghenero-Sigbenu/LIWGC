@@ -4,11 +4,34 @@ import {connect} from "react-redux";
 import {getTopics, getOneTopic} from "../store/actions/forum"
 //components
 import Header from "./Common/Header";
+import Topic from "./topicCards";
+import Modal from "./Modal/Modal";
+import AddTopic from "./AddTopic";
 // import Footer from "./Common/Footer";
 
 import "../index.css";
 
 class Forum extends Component{
+    constructor() {
+        super();
+
+        this.state = {
+            isShowing: false
+        }
+    }
+
+    openModalHandler = () => {
+        this.setState({
+            isShowing: true
+        });
+    }
+
+    closeModalHandler = () => {
+        this.setState({
+            isShowing: false
+        });
+    }
+
     componentDidMount(){
         this.props.getTopics();
         const {topics} = this.props;
@@ -25,22 +48,21 @@ class Forum extends Component{
                    <h2>Welcome to Church Forum</h2>
                    <p>Share your ideas and thoughts.</p> 
                 </div>
+                <Topic topics={topics}/>
+                <div>
+                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
 
-                <div >
-                    <h2>Topics</h2>
-                    {topics && topics.map((topic, index) => (
-                    <div key={index} className="trend">
-                        <h2>{topic.topic}</h2>
-                        <p>{topic.detail}</p>
-                        <div className="foot">
-                            <span>Created by:<p>{topic.name}</p></span>
-                            <span>Day created:<p>{topic.date}</p></span>
-                        </div>
-                    </div>
-                    ))}
-                </div>
-                </div>
+                <button className="open-modal-btn" onClick={this.openModalHandler}>Create a Topic</button>
+
+                <Modal
+                    className="modal"
+                    show={this.state.isShowing}
+                    close={this.closeModalHandler}>
+                      <AddTopic/>
+                </Modal>
+            </div>
                 {/* <Footer/> */}
+            </div>
             </div>
         )
     }

@@ -5,6 +5,7 @@ import {Route, Switch } from 'react-router-dom';
 import Home from "./Components/Home";
 import Forum from "./Components/Forum";
 import YouthChurch from './Components/YouthChurch';
+import TopicDetail from "./Components/topicDetail";
 //static Assets
 import './App.css';
 import './assets/fonts/Poppins-Bold.ttf';
@@ -16,7 +17,7 @@ class App extends Component{
         return (
               <div className="App">
                   <Switch>
-                      {/* <Route path="" component={}/>*/}
+                      <Route path="/topic/:id" component={TopicDetail}/>
                       <Route path="/youth" component={YouthChurch}/>
                       <Route path="/forum" component={Forum}/> 
                       <Route path="/" exact component={Home} />

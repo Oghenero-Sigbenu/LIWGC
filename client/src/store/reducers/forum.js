@@ -11,7 +11,7 @@ export default (state = INITIAL, action) => {
         case START:
             return {
                 ...state,
-                isSubmitting: payload.isSubmitting,
+                isSubmitting: payload,
                 created: false
             }
         case CREATE_TOPIC:

@@ -37,7 +37,7 @@ export const getTopicSuccess = (data) => {
 export const getSingleTopicSuccess = (data) =>{
     return{
         type: GET_TOPIC_BY_ID,
-        payload: data.data
+        payload: data
     }
 };
 
@@ -68,7 +68,10 @@ export const getOneTopic = (topicId) => {
             axios.get(`/forum/get/${topicId}`)
                 .then(res => {
                     dispatch(getOneTopic(res.data))
+                    // console.log(res.data)
                 })
-                .catch(err => console.log(err.response))
+                .catch(err =>{}
+                    //  console.log(err.response)
+                     )
     }
 };
