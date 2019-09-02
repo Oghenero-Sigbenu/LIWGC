@@ -10,34 +10,33 @@ import "../index.css";
 
 class TopicDetail extends Component{
     componentDidMount(){
-        const topicId = this.props.match.params.id;
-        this.props.getOneTopic(topicId);
+        // const topicId = this.props.match.params.id;
+        this.props.getOneTopic();
     }
     render(){
+        console.log(this.props.topic)
         const {topic} = this.props;
         return(
             <div >
                 <Header/>
-                <div className="detail" key={topic && topic.id}>
-                    <h2>{topic && topic.topic}</h2>
-                    <p>{topic && topic.detail}</p>
+                <div className="detail" >
+                    {/* <h2>{ topic.topic}</h2> */}
+                    {/* <p>{topic && topic.detail}</p> */}
                     {/* <Footer/> */}
                 </div>
-                <div className="foot">
+                {/* <div className="foot">
                     <span>Created by:<p>{topic && topic.name}</p></span>
                     <span>Day created:<p>{topic && topic.date}</p></span>
-                </div>
+                </div> */}
             </div>
         )
     }
 };
 
 const mapStateToProps = (state) => {
-    const {topic, created, isSubmitting} = state.Forum;
+    const {topic} = state.Forum;
     return{
-        topic,
-        created,
-        isSubmitting
+        topic
     }
 }
 export default connect (mapStateToProps, {getOneTopic})(TopicDetail);

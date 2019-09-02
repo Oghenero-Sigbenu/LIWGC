@@ -4,15 +4,19 @@
     border-radius: 50%;
     background-color:  rgb(251, 187, 199);
     text-align: center;
+    margin: 20px;
 }
-.row{
+.rows{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 .txt{
-    margin: 90px auto;
+    /* margin: 90px auto; */
     height: 150px;
     width: 50%;
-    vertical-align: middle;
+    padding: 90px;
+}
+.txt h3{
+    font-size: 40px;
 }

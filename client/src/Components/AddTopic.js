@@ -37,12 +37,13 @@ class AddTopic extends Component{
     };
 
     render(){
+      const {detail} = this.state;
         return(
             <div>
             <form onSubmit={this.click}>
               <Input name="name" placeholder="Full Name" handleChange={this.handChange} type="text"/>
               <Input name="topic" placeholder="Title of Discussion"  handleChange={this.handChange} type="text"/>
-              <textarea name="detail" value={this.state.detail} onChange={this.handChange} placeholder="Description" type="text"></textarea>
+              <textarea name="detail" value={detail} onChange={this.handChange} placeholder="Description" type="text"></textarea>
               <Input name="date" placeholder="Date crreated" type="text" handleChange={this.handChange} />
               <Button>Create</Button>
             </form>

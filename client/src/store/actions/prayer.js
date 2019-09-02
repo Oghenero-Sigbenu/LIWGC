@@ -1,5 +1,5 @@
 import axios from "../../utils/axios.base";
-import {CRETAEPRAYER, START} from "./types";
+import {CRETAEPRAYER,FAILED, START} from "./types";
 
 export const start = () => {
     return {
@@ -9,12 +9,7 @@ export const start = () => {
         }
     }
 };
-export const loading = () => {
-    return {
-        type: CHECK_START,
-      
-    }
-};
+
 export const failed = (msg) => {
     return{
         type: FAILED,

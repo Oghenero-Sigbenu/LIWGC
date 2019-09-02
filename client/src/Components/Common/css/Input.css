@@ -8,11 +8,12 @@
 
 .form-element input {
   width: 100%;
-  border-radius: 20px;
-  border: 1px solid #bdbdbd;
+  /* border-radius: 20px; */
+  border-bottom: 1px solid #bdbdbd;
+  background-color: white;
   padding: 8px;
   font-size: 16px;
-  color: black;
+  color: rgb(3, 41, 20);
   margin: 7px;
 }
 

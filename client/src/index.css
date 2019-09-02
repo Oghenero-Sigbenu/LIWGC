@@ -9,7 +9,11 @@ body {
   font-size: 16px;
   font-family: "Poppins";
 }
-
+.link{
+  font-style: none;
+  text-decoration: none !important;
+  color: #9C010A;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -51,14 +55,15 @@ code {
 .trend{
   width: 80%;
   height: 100px;
-  margin: 0 auto;
+  margin: 5px auto;
   background-color: #9C010A;
   border-radius: 10px;
   color: #FFE9ED !important; 
 }
 .foot{
-  width: 50%;
+  width: 70%;
   display: flex;
+  justify-content: space-between;
   color: #FFE9ED !important; 
   margin: 0 auto;
 
@@ -66,4 +71,43 @@ code {
 .foot span{
   display: flex;
   color: #FFE9ED !important; 
+}
+
+/* youth church */
+.youth{
+  width:80%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+.blog{
+  width:96%;
+  background-color: #9C010A;
+  color: #FFE9ED !important;
+  border-radius: 10%;
+}
+.events, .weekly{
+  color: #FFE9ED !important;
+  border-radius: 10px;
+  height: 300px;
+  width: 48%;
+  background-color: #9C010A;
+  margin: 10px 0;
+}
+.activity{
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background-color:  #9C010A;
+  color: #FFE9ED !important;
+  text-align: center;
+  /* margin: 20px; */
+  padding-top: 20px;
+}
+.tx{
+  margin: 20px;
+}
+.about{
+    min-height: 100vh;
 }

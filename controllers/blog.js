@@ -1,11 +1,11 @@
-const Forum = require("../model/forum");
+const Blog = require("../model/blog");
 
-exports.createForum = (req, res, next) => {
+exports.createBlog = (req, res, next) => {
     const {name, topic, detail, date} = req.body;
         if(!name || !topic || !detail || !date){
             res.status(400).json("All fields are required")
         }else{
-            Forum.create({
+            Blog.create({
                 name, topic, detail, date
             })
             .then(foru => {
@@ -15,23 +15,23 @@ exports.createForum = (req, res, next) => {
         }
 };
 
-exports.getForum = (req, res, next) => {
-    Forum.findAll()
-        .then(foru => {
-            return res.json(foru)
+exports.getBlog = (req, res, next) => {
+    Blog.findAll()
+        .then(blog => {
+            return res.json(blog)
         })
         .catch(err => res.json({msg: err.message || "Errorr occured"}))
 };
 
-exports.getForumTopicId = (req, res, next) => {
+exports.getBlogTopicId = (req, res, next) => {
     const id = req.params.id;
-        Forum.findByPk(id)
-        .then(forum => {
-            if(!forum.id){
+        Blog.findByPk(id)
+        .then(blog => {
+            if(!blog.id){
                 res.status(400).json("Topic not found")
             }else{
-            //   return res.json(forum)
-                console.log(forum.dataValue)
+                // res.json(forum)
+                console.log(blog.dataValue)
                 // console.log('gettng')
             }
         })

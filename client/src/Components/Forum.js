@@ -7,37 +7,41 @@ import Header from "./Common/Header";
 import Topic from "./topicCards";
 import Modal from "./Modal/Modal";
 import AddTopic from "./AddTopic";
-// import Footer from "./Common/Footer";
+import Footer from "./Common/Footer";
 
 import "../index.css";
 
 class Forum extends Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             isShowing: false
         }
+        this.closeModalHandler = this.closeModalHandler.bind(this);
+        this.openModalHandler = this.openModalHandler.bind(this);
     }
-
+ componentDidMount(){
+        this.props.getTopics();
+    }
     openModalHandler = () => {
+        console.log("open")
         this.setState({
             isShowing: true
         });
     }
 
     closeModalHandler = () => {
+        console.log("dinh")
         this.setState({
             isShowing: false
         });
     }
-
-    componentDidMount(){
-        this.props.getTopics();
-        const {topics} = this.props;
-        console.log(topics)
-
-    }
+    selectTopic = (topic) => {
+        this.props.getOneTopic(topic)
+        console.log("seeing")
+    } 
+   
     render(){
         const {topics} = this.props;
         return(
@@ -48,9 +52,9 @@ class Forum extends Component{
                    <h2>Welcome to Church Forum</h2>
                    <p>Share your ideas and thoughts.</p> 
                 </div>
-                <Topic topics={topics}/>
+                <Topic topics={topics} topic={this.selectTopic}/>
                 <div>
-                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
+                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="modal"></div> : null }
 
                 <button className="open-modal-btn" onClick={this.openModalHandler}>Create a Topic</button>
 
@@ -61,7 +65,7 @@ class Forum extends Component{
                       <AddTopic/>
                 </Modal>
             </div>
-                {/* <Footer/> */}
+                <Footer/>
             </div>
             </div>
         )

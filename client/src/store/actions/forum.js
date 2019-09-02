@@ -34,11 +34,12 @@ export const getTopicSuccess = (data) => {
         payload: data
     }
 };
-export const getSingleTopicSuccess = (data) =>{
+export const getOneTopic = (data) =>{
     return{
         type: GET_TOPIC_BY_ID,
-        payload: data
+        payload:{ data}
     }
+    console.log(data)
 };
 
 export const addTopic = (data) => {
@@ -62,16 +63,15 @@ export const getTopics = ( ) => {
     }
 };
 
-export const getOneTopic = (topicId) => {
-    return(dispatch) => {
-        dispatch(loading())
-            axios.get(`/forum/get/${topicId}`)
-                .then(res => {
-                    dispatch(getOneTopic(res.data))
-                    // console.log(res.data)
-                })
-                .catch(err =>{}
-                    //  console.log(err.response)
-                     )
-    }
-};
+// export const getOneTopic = (topicId) => {
+//     return(dispatch) => {
+//             axios.get(`/forum/get/${topicId}`)
+//                 .then(res => {
+//                     dispatch(getOneTopic(res.data))
+//                     console.log(res.data)
+//                 })
+//                 .catch(err =>{}
+//                     //  console.log(err.response)
+//                      )
+//     }
+// };

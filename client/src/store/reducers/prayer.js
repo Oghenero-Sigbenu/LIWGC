@@ -1,8 +1,8 @@
-import {GETPRAYERS,CRETAEPRAYER, START} from "../actions/types";
+import {CRETAEPRAYER, START} from "../actions/types";
 
 const INITIAL = {
     isSubmitting: false,
-    topics: null
+    prayer: null
 }
 
 export default (state = INITIAL, action) => {
